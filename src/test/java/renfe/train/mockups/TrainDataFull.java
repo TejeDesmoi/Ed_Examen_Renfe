@@ -12,16 +12,17 @@ public class TrainDataFull implements ITrainRepository {
     public int added = 0;
     public int deleted = 0;
 
-    @Override
-    public ArrayList<Train> findAll() {
-
+    public TrainDataFull() {
         result.add(new Train("1","Modelo 1","Renfe","5"));
         result.add(new Train("2","Modelo 1","Renfe","5"));
         result.add(new Train("3","Modelo 1","Renfe","5"));
         result.add(new Train("4","Modelo 1","Renfe","5"));
         result.add(new Train("5","Modelo 1","Renfe","5"));
-
         storage = result.toArray().length;
+    }
+
+    @Override
+    public ArrayList<Train> findAll() {
         return result;
     }
 
@@ -35,6 +36,7 @@ public class TrainDataFull implements ITrainRepository {
     @Override
     public void delete(String trainId) {
         result.removeIf(train -> Objects.equals(train.getId(), trainId));
+        storage --;
         deleted ++;
     }
 }

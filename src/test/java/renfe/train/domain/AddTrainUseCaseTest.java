@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AddTrainUseCaseTest {
     TrainDataFull trainDataFull;
-
     AddTrainUseCase addTrainUseCase;
 
     @Test
