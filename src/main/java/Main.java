@@ -8,5 +8,7 @@ public class Main {
         trainView.AddTrainAndCheck(new Train("1","Modelo 1","Renfe","5"));
 
         trainView.SeeAllTrains();
+
+        trainView.RemoveTrainAndCheck("1");
     }
 }

@@ -38,4 +38,22 @@ public class TrainView {
             System.out.println(oTrain.getId()+"\t"+oTrain.getCompañia()+"\t"+oTrain.getModelo()+"\t"+oTrain.getVagones()+"\t");
         }
     }
+
+    public void RemoveTrainAndCheck(String idTrain){
+        ArrayList<Train> result = new ArrayList<>();
+        FindAllTrainsUseCase findAllTrainsUseCase = new FindAllTrainsUseCase(TrainDataSource.getInstance());
+        DeleteTrainUseCase deleteTrainUseCase = new DeleteTrainUseCase(TrainDataSource.getInstance());
+
+        result = findAllTrainsUseCase.execute();
+        for (Train oTrain : result){
+            System.out.println(oTrain.getId()+"\t"+oTrain.getCompañia()+"\t"+oTrain.getModelo()+"\t"+oTrain.getVagones()+"\t");
+        }
+
+        deleteTrainUseCase.execute(idTrain);
+
+        result = findAllTrainsUseCase.execute();
+        for (Train oTrain : result){
+            System.out.println(oTrain.getId()+"\t"+oTrain.getCompañia()+"\t"+oTrain.getModelo()+"\t"+oTrain.getVagones()+"\t");
+        }
+    }
 }
