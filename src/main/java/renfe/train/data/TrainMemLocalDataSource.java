@@ -1,11 +1,12 @@
 package renfe.train.data; //cambiar por la ruta correcta
 
+import renfe.train.domain.ITrainRepository;
 import renfe.train.domain.Train;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class TrainMemLocalDataSource {
+public class TrainMemLocalDataSource implements ITrainRepository {
 
     private ArrayList<Train> storage = new ArrayList<>();
 

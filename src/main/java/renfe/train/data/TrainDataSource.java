@@ -5,11 +5,11 @@ import renfe.train.domain.Train;
 
 import java.util.ArrayList;
 
-public class TrainDataSource implements ITrainRepository {
+public class TrainDataSource implements ITrainRepository{
     private ITrainRepository iTrainRepository;
 
     public TrainDataSource(ITrainRepository iTrainRepository) {
-        this.iTrainRepository = iTrainRepository;
+        this.iTrainRepository = new TrainMemLocalDataSource();
     }
 
     @Override
