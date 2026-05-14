@@ -6,5 +6,7 @@ public class Main {
         TrainView trainView = new TrainView();
 
         trainView.AddTrainAndCheck(new Train("1","Modelo 1","Renfe","5"));
+
+        trainView.SeeAllTrains();
     }
 }

@@ -29,5 +29,13 @@ public class TrainView {
         }
     }
 
+    public void SeeAllTrains(){
+        ArrayList<Train> result = new ArrayList<>();
+        FindAllTrainsUseCase findAllTrainsUseCase = new FindAllTrainsUseCase(TrainDataSource.getInstance());
 
+        result = findAllTrainsUseCase.execute();
+        for (Train oTrain : result){
+            System.out.println(oTrain.getId()+"\t"+oTrain.getCompañia()+"\t"+oTrain.getModelo()+"\t"+oTrain.getVagones()+"\t");
+        }
+    }
 }
