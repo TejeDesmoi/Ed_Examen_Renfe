@@ -7,8 +7,9 @@ import java.util.ArrayList;
 
 public class TrainDataSource implements ITrainRepository{
     private ITrainRepository iTrainRepository;
+    private static TrainDataSource instance;
 
-    public TrainDataSource(ITrainRepository iTrainRepository) {
+    private TrainDataSource(ITrainRepository iTrainRepository) {
         this.iTrainRepository = new TrainMemLocalDataSource();
     }
 
@@ -25,5 +26,13 @@ public class TrainDataSource implements ITrainRepository{
     @Override
     public void delete(String trainId) {
         iTrainRepository.delete(trainId);
+    }
+
+    public static TrainDataSource getInstance(){
+        if (instance == null){
+            instance = new TrainDataSource(new TrainMemLocalDataSource());
+        }
+
+        return instance;
     }
 }
